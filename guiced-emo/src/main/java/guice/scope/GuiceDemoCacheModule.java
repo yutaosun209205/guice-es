@@ -1,27 +1,22 @@
-package guice.server;
+package guice.scope;
 
 import com.google.common.cache.Cache;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.TypeLiteral;
-import guice.server.service.OrderService;
-import guice.server.service.PaymentService;
-import guice.server.service.PriceService;
 
 import javax.inject.Singleton;
 
-public class ServerModule extends AbstractModule {
+public class GuiceDemoCacheModule extends AbstractModule {
     @Override
     protected void configure() {
-        bind(OrderService.class).to(OrderServiceImpl.class);
-        bind(PaymentService.class).to(PaymentServiceImpl.class);
-        bind(PriceService.class).to(PriceServiceImpl.class);
-
+        //bind(new TypeLiteral<Cache<String, String>>(){}).to(GuiceDemoCache.class);
+        //不需要在GuiceDemoCache类中声明 @Singleton
         //bind(new TypeLiteral<Cache<String, String>>(){}).to(GuiceDemoCache.class).in(Singleton.class);
     }
 
     @Provides
-    @Singleton
+    @Singleton   //同样实现 cache 单例，全局唯一
     public Cache<String, String> getCache(){
         return new GuiceDemoCache();
     }
