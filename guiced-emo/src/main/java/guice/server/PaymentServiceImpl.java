@@ -16,6 +16,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
+    @Logged
     public void pay(long orderId, long price, Long sessionId) {
 
     }
