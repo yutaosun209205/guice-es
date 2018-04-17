@@ -1,6 +1,7 @@
 package guice.server;
 
 import com.google.common.cache.Cache;
+import guice.server.annotations.Logged;
 import guice.server.service.PaymentService;
 
 import javax.inject.Inject;

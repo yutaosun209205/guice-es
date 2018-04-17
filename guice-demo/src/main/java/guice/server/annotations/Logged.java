@@ -1,4 +1,4 @@
-package guice.server;
+package guice.server.annotations;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

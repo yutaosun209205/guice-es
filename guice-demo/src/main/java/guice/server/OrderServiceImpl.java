@@ -1,5 +1,6 @@
 package guice.server;
 
+import guice.server.annotations.Logged;
 import guice.server.service.OrderService;
 import guice.server.service.PaymentService;
 import guice.server.service.PriceService;
@@ -21,6 +22,7 @@ public class OrderServiceImpl implements OrderService {
         this.sessionManger = sessionManger;
     }
 
+    @Logged
     public void sendToPayment(long orderId){
         long price = priceService.getPrice();
         paymentService.pay(orderId, price, sessionManger.getSessionId());
