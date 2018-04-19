@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "guice")
 public class SampleController {
-
-
 
     @GetMapping("/hello")
     String home(@RequestParam("msg") String msg) {
